@@ -1,0 +1,36 @@
+# API REST
+
+GET users/:id
+POST users
+PUT users/:id
+DELETE users/:id
+
+# GRAPHQL
+
+QUERY = buscar informação
+MUTATION = alterar informação, criar informação
+SUBSCRIPTION = notificação, real time (push)
+
+{
+    mutation updateUser {
+        updateUser(id: "1", name: "teste") {
+            id
+            name
+            email
+            createdAt
+            updatedAt
+        }
+    }
+
+    query users {
+        users({perPage:10, page:1, filter: {nome: {"starts_with": "Vinicius"}}}) {
+            id
+            name
+            email
+            createdAt
+            updatedAt
+        }
+    }
+}
+
+Controllers se chamam Resolvers
